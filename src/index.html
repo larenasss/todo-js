@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="favicon.ico">
+  <title>Todo list</title>
+</head>
+<body>
+  <div class="wrapper">
+      <header class="header">
+        <div class="container">
+          <div class="header__content">
+            <div class="header__logo">
+              <div class="logo-title">Todo list</div>
+            </div>
+            <div class="header__themes">
+              <div class="themes">
+                <div class="switch">
+                  <input type="checkbox" id="switch" />
+                  <label class="switch__box" for="switch">Toggle</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="content">
+        <div class="container">
+          <div class="content__top">
+            <form class="form">
+              <div class="form__content">
+                <div class="form__block">
+                  <input type="text" class="custom-input" placeholder="Заголовок задачи">
+                </div>
+                <div class="form__block">
+                  <textarea type="text" class="custom-input" placeholder="Тело задачи"></textarea>
+                </div>
+                <div class="form__block">
+                  <button class="custom-btn" type="submit">Готово</button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="content__body js-container-tasks">
+            <!--Render task item-->
+          </div>
+        </div>
+      </div>
+  </div>
+</body>
+</html>

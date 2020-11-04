@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
+@import "~normalize.css";
+
+// helpers
+@import './helpers/variables';
+
+// blocks
+@import './blocks/header.scss';
+@import './blocks/form.scss';
+@import './blocks/switch.scss';
+@import './blocks/custom-input.scss';
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  color: $color-text;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.content {
+  &__top {
+    margin-bottom: 30px;
+  }
+
+  &__body {
+    width: 60%;
+    margin: 0 auto;
+  }
+}

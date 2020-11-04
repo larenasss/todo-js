@@ -1,0 +1,23 @@
+@import '../helpers/variables';
+
+.custom-input {
+  border: 1px solid #EAE8FD;
+  box-sizing: border-box;
+  border-radius: 18.5px;
+  outline: none;
+  padding: 10px 30px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: .4s;
+  width: 100%;
+
+  &::placeholder {
+    color: #D6D6D6;
+  }
+
+  &:focus {
+    color: $color-blue;
+    border: 1px solid $color-blue;
+    caret-color: $color-blue;
+  }
+}
