@@ -20,4 +20,8 @@
     border: 1px solid $color-blue;
     caret-color: $color-blue;
   }
+
+  &.error {
+    border: 1px solid #EE5151;
+  }
 }

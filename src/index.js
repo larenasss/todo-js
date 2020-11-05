@@ -13,8 +13,7 @@ const tasks = [
     completed: false,
     body:
       "Cupidatat aliqua deserunt id deserunt excepteur nostrud culpa eu voluptate excepteur. Cillum officia proident anim aliquip. Dolore veniam qui reprehenderit voluptate non id anim.\r\n",
-    title:
-      "Deserunt laborum id consectetur",
+    title: "Deserunt laborum id consectetur",
   },
   {
     _id: "5d2ca9e2e03d40b3232496aa7",
@@ -41,18 +40,24 @@ const tasks = [
 
   // UI
   const containerTask = document.querySelector(".js-container-tasks");
+  const formTasks = document.forms["form-tasks"];
+  const inputTitleTask = formTasks.elements["title-task"];
+  const inputBodyTask = formTasks.elements["body-task"];
+
+  // Handlers
+  formTasks.addEventListener("submit", formTaskSubminHandler);
+
+  // app
 
   function renderAllTasks(taskList) {
-    if(!taskList) {
-      console.error('Вы не передали список задач');
+    if (!taskList) {
+      console.error("Вы не передали список задач");
     }
 
-    const fragment = document.createDocumentFragment();
-
-    Object.values(objTask).forEach(task => {
+    Object.values(objTask).forEach((task) => {
       const taskItem = renderTaskTemplate(task);
       containerTask.insertAdjacentHTML("beforeend", taskItem);
-    })
+    });
   }
 
   function renderTaskTemplate(task) {
@@ -76,6 +81,45 @@ const tasks = [
         </div>
       `;
     }
+  }
+
+  function formTaskSubminHandler(event) {
+    event.preventDefault();
+    const newTask = createNewTask(inputTitleTask, inputBodyTask);
+    if (!newTask) {
+      // ? Включить return;
+    }
+    const taskElement = renderTaskTemplate(newTask);
+    containerTask.insertAdjacentHTML("afterbegin", taskElement);
+  }
+
+  function createNewTask(title, body) {
+    if (!title.value || !body.value) {
+      validateInputs(title, body);
+      // ? Включить return;
+    }
+
+    let titleValue = title.value;
+    let bodyValue = body.value;
+
+    const newTask = {
+      title: titleValue,
+      body: bodyValue,
+      completed: false,
+      _id: `task-${Math.random()}`,
+    };
+
+    objTask[newTask._id] = newTask;
+
+    return { ...newTask };
+  }
+
+  function validateInputs(items) {
+    Object.values(arguments).forEach((item) => {
+      if (item.value === "") {
+        item.classList.add("error");
+      }
+    });
   }
 
   renderAllTasks(objTask);
