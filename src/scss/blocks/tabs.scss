@@ -1,14 +1,16 @@
 .tabs {
-  background: #EAE8FD;
+  background: var(--default-shadow-block-color);
   border-radius: 18.5px;
   padding: 5px;
+  transition: .3s background ease-in-out;
 
   &__content {
     border: 1px solid #B396FD;
     border-radius: 14px;
-    background: $color-white;
+    background: var(--default-elements-bg-color);
     display: flex;
     justify-content: space-between;
+    transition: .3s background ease-in-out;
   }
 
   &__item {
@@ -17,6 +19,8 @@
     height: 100%;
     text-align: start;
     padding: 10px 20px;
+    color: var(--default-text-color);
+    transition: .3s color ease-in-out;
 
     &_right {
       text-align: end;

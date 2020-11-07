@@ -15,8 +15,11 @@
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
-  color: $color-text;
+  color: var("--default-text-color");
   font-size: 16px;
+  min-height: 100vh;
+  background: var(--default-bg-color);
+  transition: .3s background ease-in-out, .3s color ease-in-out;
 }
 
 .container {
@@ -45,6 +48,11 @@ button {
   background: none;
   outline: none;
   padding: 0;
+  color: inherit;
+}
+
+input {
+  color: inherit;
 }
 
 textarea {

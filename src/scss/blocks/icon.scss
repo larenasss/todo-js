@@ -1,6 +1,8 @@
+$icon-box-shadow: 0px 8px 15px rgba(39, 174, 96, 0.25);
+
 .icon-complete {
-  background: #27AE60;
-  box-shadow: 0px 8px 15px rgba(39, 174, 96, 0.25);
+  background: $color-green;
+  box-shadow: $icon-box-shadow;
   width: 20px;
   height: 20px;
   display: block;
@@ -16,18 +18,19 @@
     width: 9px;
     height: 4px;
     border-radius: 1px;
-    border-left: 3px solid white;
-    border-bottom: 3px solid white;
+    border-left: 3px solid $color-white;
+    border-bottom: 3px solid $color-white;
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
     opacity: 0;
+    transition: .3s opacity ease-in-out;
   }
 }
 
 .icon-delete {
-  background: #EE5151;
-  box-shadow: 0px 8px 15px rgba(39, 174, 96, 0.25);
+  background: $color-red;
+  box-shadow: $icon-box-shadow;
   width: 20px;
   height: 20px;
   display: block;
@@ -43,7 +46,7 @@
     left: 50%;
     width: 12px;
     height: 3px;
-    background: #fff;
+    background: $color-white;
   }
 
   &::before {
@@ -56,8 +59,8 @@
 }
 
 .icon-edit {
-  background: #662DFC;
-  box-shadow: 0px 8px 15px rgba(39, 174, 96, 0.25);
+  background: $color-blue;
+  box-shadow: $icon-box-shadow;
   width: 20px;
   height: 20px;
   display: block;
@@ -73,6 +76,6 @@
     position: absolute;
     width: 9px;
     height: 4px;
-    background: white;
+    background: $color-white;
   }
 }

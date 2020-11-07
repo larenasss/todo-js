@@ -1,25 +1,27 @@
 @import '../helpers/variables';
 
 .js-container-tasks {
-  opacity: 1;
+  transition: .3s transform ease-in-out;
 
   &.animate {
-    opacity: 0;
+    transform: scale(0);
   }
 }
 
 .form {
-  background: #EAE8FD;
+  background: var(--default-shadow-block-color);
   border-radius: 18.5px;
   padding: 5px;
   width: 60%;
   margin: 0 auto;
+  transition: .3s background ease-in-out;
 
   &__content {
-    border: 1px solid #B396FD;
+    border: 1px solid $color-violet-wt;
     border-radius: 14px;
     padding: 30px;
-    background: $color-white;
+    background: var(--default-elements-bg-color);
+    transition: .3s background ease-in-out;
   }
 
   &__block {

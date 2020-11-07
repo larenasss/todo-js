@@ -34,6 +34,26 @@ const tasks = [
 (function (arrOfTasks = []) {
   const objTask = transformArrayTask(arrOfTasks);
 
+  // Themes
+  const themes = {
+    white: {
+      "--default-bg-color": "#FFFFFF",
+      "--default-elements-bg-color": "#FFFFFF",
+      "--default-text-color": "#342B4A",
+      "--default-sup-text-color-ph": "#D6D6D6",
+      "--default-shadow-block-color": "#EAE8FD",
+      "--default-input-border-color": "#EAE8FD",
+    },
+    dark: {
+      "--default-bg-color": "#342B4A",
+      "--default-elements-bg-color": "#221A37",
+      "--default-text-color": "#B396FD",
+      "--default-sup-text-color-ph": "#B396FD",
+      "--default-shadow-block-color": "#221A37",
+      "--default-input-border-color": "#B396FD",
+    },
+  };
+
   // UI
   const containerTask = document.querySelector(".js-container-tasks");
   const formTasks = document.forms["form-tasks"];
@@ -41,6 +61,7 @@ const tasks = [
   const inputBodyTask = formTasks.elements["body-task"];
   const containerFilter = document.querySelector(".tabs__content");
   const btnShowNoCompleted = document.querySelector(".js-show-completed-task");
+  const checkboxSelectThemes = document.getElementById("switch");
   let noCompletedTask = [];
 
   // Handlers
@@ -48,6 +69,7 @@ const tasks = [
   containerTask.addEventListener("click", onClickTaskHandler);
   containerTask.addEventListener("change", onChangeTaskHandler);
   containerFilter.addEventListener("click", onClickFilterHandler);
+  checkboxSelectThemes.addEventListener("change", onThemeSelectHandler);
 
   // helpers
   let isShowNoCompleted = JSON.parse(
@@ -240,8 +262,9 @@ const tasks = [
   }
 
   function removeTaskFromHtml(el) {
-    el.classList.add('remove');
+    el.classList.add("remove");
     setTimeout(() => el.remove(), 200);
+    formTasks.reset();
   }
 
   function onClickFilterHandler(event) {
@@ -268,6 +291,18 @@ const tasks = [
         containerTask.classList.remove("animate");
       }, 200);
     }
+  }
+
+  function onThemeSelectHandler(e) {
+    const selectedTheme = this.checked ? themes.dark : themes.white;
+    setTheme(selectedTheme);
+  }
+
+  function setTheme(theme) {
+    const selectedThemeObj = theme;
+    Object.entries(selectedThemeObj).forEach(([key, value]) => {
+      document.documentElement.style.setProperty(key, value);
+    });
   }
 
   renderAllTasks(objTask);
