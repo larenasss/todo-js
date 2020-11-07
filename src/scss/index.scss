@@ -8,7 +8,10 @@
 @import './blocks/header.scss';
 @import './blocks/form.scss';
 @import './blocks/switch.scss';
-@import './blocks/custom-input.scss';
+@import './blocks/custom-elements.scss';
+@import './blocks/card-task.scss';
+@import './blocks/tabs.scss';
+@import './blocks/icon.scss';
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -30,4 +33,20 @@ body {
     width: 60%;
     margin: 0 auto;
   }
+
+  &__tabs {
+    margin-bottom: 15px;
+  }
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+}
+
+textarea {
+  resize: none;
 }

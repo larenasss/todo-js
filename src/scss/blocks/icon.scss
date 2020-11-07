@@ -1,0 +1,78 @@
+.icon-complete {
+  background: #27AE60;
+  box-shadow: 0px 8px 15px rgba(39, 174, 96, 0.25);
+  width: 20px;
+  height: 20px;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    left: 4px;
+    top: 6px;
+    position: absolute;
+    width: 9px;
+    height: 4px;
+    border-radius: 1px;
+    border-left: 3px solid white;
+    border-bottom: 3px solid white;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    opacity: 0;
+  }
+}
+
+.icon-delete {
+  background: #EE5151;
+  box-shadow: 0px 8px 15px rgba(39, 174, 96, 0.25);
+  width: 20px;
+  height: 20px;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 3px;
+    background: #fff;
+  }
+
+  &::before {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+
+  &::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+}
+
+.icon-edit {
+  background: #662DFC;
+  box-shadow: 0px 8px 15px rgba(39, 174, 96, 0.25);
+  width: 20px;
+  height: 20px;
+  display: block;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 9px;
+    height: 4px;
+    background: white;
+  }
+}

@@ -1,0 +1,25 @@
+.tabs {
+  background: #EAE8FD;
+  border-radius: 18.5px;
+  padding: 5px;
+
+  &__content {
+    border: 1px solid #B396FD;
+    border-radius: 14px;
+    background: $color-white;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    font-weight: 600;
+    width: 40%;
+    height: 100%;
+    text-align: start;
+    padding: 10px 20px;
+
+    &_right {
+      text-align: end;
+    }
+  }
+}
