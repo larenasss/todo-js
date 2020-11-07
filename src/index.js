@@ -81,6 +81,7 @@ const tasks = [
       if (item.value === "") {
         item.classList.add("error");
       }
+      item.addEventListener('focus', () => item.classList.remove('error'));
     });
   }
 
@@ -149,7 +150,7 @@ const tasks = [
     if (mode === "task-new") {
       const newTask = createNewTask(inputTitleTask, inputBodyTask);
       if (!newTask) {
-        // ? Включить return;
+        return;
       }
       const taskElement = renderTaskTemplate(newTask);
       containerTask.insertAdjacentHTML("afterbegin", taskElement);
@@ -192,7 +193,7 @@ const tasks = [
   function createNewTask(title, body) {
     if (!title.value || !body.value) {
       validateInputs(title, body);
-      // ? Включить return;
+      return;
     }
 
     let titleValue = title.value;

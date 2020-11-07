@@ -10,60 +10,60 @@
 </head>
 <body>
   <div class="wrapper">
-      <header class="header">
-        <div class="container">
-          <div class="header__content">
-            <div class="header__logo">
-              <div class="logo-title">Todo list</div>
-            </div>
-            <div class="header__themes">
-              <div class="themes">
-                <div class="switch">
-                  <input type="checkbox" id="switch" />
-                  <label class="switch__box" for="switch">Toggle</label>
-                </div>
-              </div>
-            </div>
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <div class="header__logo">
+            <div class="logo-title">Todo list</div>
           </div>
-        </div>
-      </header>
-      <div class="content">
-        <div class="container">
-          <div class="content__top">
-            <form class="form" name="form-tasks" data-form-mode="task-new">
-              <div class="form__content">
-                <div class="form__block">
-                  <input type="text" name="title-task" class="custom-input" placeholder="Заголовок задачи">
-                </div>
-                <div class="form__block">
-                  <textarea type="text" name="body-task" class="custom-input" placeholder="Тело задачи"></textarea>
-                </div>
-                <div class="form__block">
-                  <button class="custom-btn" type="submit">готово</button>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="content__body">
-            <div class="content__tabs">
-              <div class="tabs">
-                <div class="tabs__content">
-                  <button class="tabs__item js-show-all-task">
-                    все задачи
-                  </button>
-                  <button class="tabs__item tabs__item_right js-show-completed-task" data-show-no-completed='false'>
-                    незавершенные
-                  </button>
-                </div>
+          <div class="header__themes">
+            <div class="themes">
+              <div class="switch">
+                <input type="checkbox" id="switch" />
+                <label class="switch__box" for="switch"></label>
               </div>
             </div>
-            <div class="js-container-tasks">
-
-            </div>
-            <!--Render task item-->
           </div>
         </div>
       </div>
+    </header>
+    <div class="content">
+      <div class="container">
+        <div class="content__top">
+          <form class="form" name="form-tasks" data-form-mode="task-new">
+            <div class="form__content">
+              <div class="form__block">
+                <input type="text" name="title-task" class="custom-input" placeholder="Заголовок задачи">
+              </div>
+              <div class="form__block">
+                <textarea type="text" name="body-task" class="custom-input" placeholder="Тело задачи"></textarea>
+              </div>
+              <div class="form__block">
+                <button class="custom-btn" type="submit">готово</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="content__body">
+          <div class="content__tabs">
+            <div class="tabs">
+              <div class="tabs__content">
+                <button class="tabs__item js-show-all-task">
+                  все задачи
+                </button>
+                <button class="tabs__item tabs__item_right js-show-completed-task" data-show-no-completed='false'>
+                  незавершенные
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="js-container-tasks">
+
+          </div>
+          <!--Render task item-->
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 </html>
