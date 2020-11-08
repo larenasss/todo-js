@@ -62,7 +62,6 @@ const tasks = [
   const containerFilter = document.querySelector(".tabs__content");
   const btnShowNoCompleted = document.querySelector(".js-show-completed-task");
   const checkboxSelectThemes = document.getElementById("switch");
-  let noCompletedTask = [];
 
   // Handlers
   formTasks.addEventListener("submit", formTaskSubminHandler);
@@ -130,7 +129,7 @@ const tasks = [
                     <i class="icon-complete js-task-сomplete"></i>
                   </label>
                 </button>
-                <button class="card-task__edit icon-edit js-task-red">
+                <button class="card-task__edit icon-edit js-task-edit">
                 </button>
                 <button class="card-task__remove icon-delete js-task-remove">
                 </button>
@@ -166,14 +165,13 @@ const tasks = [
       clearContainer();
 
       if (isShowNoCompleted) {
-        noCompletedTask = Object.values(objTask).filter(
+        let noCompletedTask = Object.values(objTask).filter(
           (task) => !task.completed
         );
         renderAllTasks(noCompletedTask);
       } else {
         renderAllTasks(objTask);
       }
-
       this.dataset.formMode = "task-new";
     }
 
@@ -216,10 +214,9 @@ const tasks = [
       const currentTask = event.target.closest("[data-task-id]");
       const id = currentTask.dataset.taskId;
       removeTaskById(id, objTask);
-      removeTaskById(id, noCompletedTask);
       removeTaskFromHtml(currentTask);
     }
-    if (event.target.classList.contains("js-task-red")) {
+    if (event.target.classList.contains("js-task-edit")) {
       const currentTask = event.target.closest("[data-task-id]");
       const id = currentTask.dataset.taskId;
       const currentTaskData = objTask[id];
@@ -236,13 +233,7 @@ const tasks = [
     if (event.target.checked) {
       objTask[id].completed = true;
       if (isShowNoCompleted) {
-        noCompletedTask.forEach((item, i) => {
-          if (item._id == id) {
-            noCompletedTask.splice(i, 1);
-          }
-        });
-        clearContainer();
-        renderAllTasks(noCompletedTask);
+        removeTaskFromHtml(currentTask);
       } else {
         clearContainer();
         renderAllTasks(objTask);
@@ -281,7 +272,7 @@ const tasks = [
     }
     if (event.target.classList.contains("js-show-completed-task")) {
       isShowNoCompleted = true;
-      noCompletedTask = Object.values(objTask).filter(
+      let noCompletedTask = Object.values(objTask).filter(
         (task) => !task.completed
       );
       clearContainer();
