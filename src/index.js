@@ -235,13 +235,53 @@ const tasks = [
       if (isShowNoCompleted) {
         removeTaskFromHtml(currentTask);
       } else {
-        clearContainer();
-        renderAllTasks(objTask);
+        removeTaskFromHtml(currentTask);
+        sortCompletedTask(id);
       }
     } else {
       objTask[id].completed = false;
-      clearContainer();
-      renderAllTasks(objTask);
+      sortNoCompletedTask(id, currentTask);
+    }
+  }
+
+  function sortCompletedTask(id) {
+    const containerInputs = containerTask.querySelectorAll(".card-task__сomplete input:checked");
+    for (let i = 0; i < containerInputs.length; i++) {
+      if (containerInputs.length <= 1) {
+        setTimeout(() => {
+          containerTask.insertAdjacentHTML(
+            "beforeend",
+            renderTaskTemplate(objTask[id])
+          );
+        }, 200); 
+      } else {
+        const oneCheckedItem = containerInputs[i + 1].closest(".card-task");
+        setTimeout(() => {
+          oneCheckedItem.insertAdjacentHTML(
+            "beforebegin",
+            renderTaskTemplate(objTask[id])
+          );
+        }, 200); 
+      }
+      break;
+    }
+  }
+
+  function sortNoCompletedTask(id, currentTask) {
+    const containerInputs = containerTask.querySelectorAll(
+      ".card-task__сomplete input:checked"
+    );
+    if (!containerInputs.length) return;
+    removeTaskFromHtml(currentTask);
+    for (let i = 0; i < containerInputs.length; i++) {
+      const oneCheckedItem = containerInputs[i].closest(".card-task");
+      setTimeout(() => {
+        oneCheckedItem.insertAdjacentHTML(
+          "beforebegin",
+          renderTaskTemplate(objTask[id])
+        );
+      }, 200);
+      break;
     }
   }
 
