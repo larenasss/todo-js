@@ -1,4 +1,4 @@
-Todo-list на ванильном JavaScript
+# Todo-list на ванильном JavaScript
 
 Функционал:
   * Добавление задач
@@ -7,4 +7,4 @@ Todo-list на ванильном JavaScript
   * Фильтр по отображению невыполненных и всех задач
   * Смена темы приложения
 
-Ссылка: () => https://larenasss.github.io/todo-js/dist
+ посмотреть приложение можно по ссылке https://larenasss.github.io/todo-js/dist
